@@ -1,0 +1,40 @@
+
+<div class="row valign-wrapper">
+    <div class="col m3 offset-m3 s6 center-align">
+        <h3>Книга {{book.name}}</h3>
+    </div>
+    <div class="col m3 s6 center-align">
+        <a class="btn-floating waves-effect waves-light blue"(click)="showInfo=!showInfo">
+            <i *ngIf="showInfo" class="material-icons">
+                keyboard_arrow_up
+            </i>
+            <i *ngIf="!showInfo" class="material-icons">
+                keyboard_arrow_down
+            </i>
+        </a>
+        <a [routerLink] = "'/students/'+book.name"
+            class="btn-floating waves-effect waves-light blue-grey">
+            <i class="material-icons">
+                view_headline
+            </i>
+        </a>
+    </div>
+</div>
+<div class="info" *ngIf="showInfo">
+    <div class="input-field">
+        <input id="name" [(ngModel)]="book.name" type="text" class="validate">
+        <label for="name" class="active">Назва</label>
+    </div>
+    <div class="input-field">
+        <input id="genre" [(ngModel)]="book.genre" type="text" class="validate">
+        <label for="genre" class="active">Жанр</label>
+    </div>
+    <div class="input-field">
+        <input id="publisher" [(ngModel)]="book.publisher" type="text" class="validate">
+        <label for="publisher" class="active">Видавництво</label>
+    </div>
+    <a class="rem-row btn-floating waves-effect waves-light red" (click)="delBook()">
+        <i class="material-icons">delete</i>
+    </a>
+</div>
+

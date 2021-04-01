@@ -1,0 +1,6 @@
+<h5 class="center-align">Список книг</h5>
+<app-new-group></app-new-group>
+<app-group 
+        *ngFor="let book of books; let i = index"
+        [book]="book" [bookIndex]="i">
+</app-group>
